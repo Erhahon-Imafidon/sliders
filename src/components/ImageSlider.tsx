@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ArrowBigLeft, ArrowBigRight } from 'lucide-react';
 
 type ImageSliderProps = {
@@ -6,48 +6,77 @@ type ImageSliderProps = {
 };
 
 const ImageSlider = ({ imageUrls }: ImageSliderProps) => {
-    const [imageIndex, setImageIndex] = useState(0);
+    const [imageIndex, setImageIndex] = useState(1); // Start at first real image
+    const [isTransitioning, setIsTransitioning] = useState(false);
+    const sliderRef = useRef<HTMLDivElement>(null);
+
+    const images = [
+        imageUrls[imageUrls.length - 1], // Clone last
+        ...imageUrls,
+        imageUrls[0], // Clone first
+    ];
+
+    const handleTransitionEnd = () => {
+        setIsTransitioning(false);
+        if (imageIndex === 0) {
+            setImageIndex(imageUrls.length);
+        } else if (imageIndex === imageUrls.length + 1) {
+            setImageIndex(1);
+        }
+    };
 
     const showNextImage = () => {
-        setImageIndex((index) => {
-            if (index === imageUrls.length - 1) {
-                return 0;
-            }
-            return index + 1;
-        });
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setImageIndex((prev) => prev + 1);
     };
 
     const showPrevImage = () => {
-        setImageIndex((index) => {
-            if (index === 0) {
-                return imageUrls.length - 1;
-            }
-            return index - 1;
-        });
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setImageIndex((prev) => prev - 1);
     };
+
+    //   const showNextImage = () => {
+    //         setImageIndex((index) => {
+    //             if (index === imageUrls.length - 1) {
+    //                 return 0;
+    //             }
+    //             return index + 1;
+    //         });
+    //     };
+    //
+    //     const showPrevImage = () => {
+    //         setImageIndex((index) => {
+    //             if (index === 0) {
+    //                 return imageUrls.length - 1;
+    //             }
+    //             return index - 1;
+    //         });
+    //     };
 
     return (
         <div className="w-full h-full relative">
-            <div className="w-full aspect-10/6 relative">
-                <div className="w-full h-full flex overflow-hidden">
-                    {imageUrls.map((url, index) => {
-                        console.log('url', url);
-                        return (
-                            <img
-                                key={index}
-                                src={url}
-                                alt={
-                                    imageIndex === 0
-                                        ? 'Image slider 1'
-                                        : `image slider ${index + 1}`
-                                }
-                                className={`object-cover w-full h-full shrink-0 grow-0 transition-transform duration-500 ease-in-out`}
-                                style={{
-                                    translate: `${-100 * imageIndex}%`,
-                                }}
-                            />
-                        );
-                    })}
+            <div className="w-full aspect-10/6 relative overflow-hidden">
+                <div
+                    ref={sliderRef}
+                    className="w-full h-full flex"
+                    style={{
+                        transform: `translateX(${-100 * imageIndex}%)`,
+                        transition: isTransitioning
+                            ? 'transform 0.5s ease-in-out'
+                            : 'none',
+                    }}
+                    onTransitionEnd={handleTransitionEnd}
+                >
+                    {images.map((url, idx) => (
+                        <img
+                            key={idx}
+                            src={url}
+                            alt={`image slider ${idx}`}
+                            className="object-cover w-full h-full shrink-0 grow-0"
+                        />
+                    ))}
                 </div>
                 <button
                     onClick={showPrevImage}
@@ -65,4 +94,5 @@ const ImageSlider = ({ imageUrls }: ImageSliderProps) => {
         </div>
     );
 };
+
 export default ImageSlider;
