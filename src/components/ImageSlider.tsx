@@ -62,7 +62,7 @@ const ImageSlider = ({ imageUrls }: ImageSliderProps) => {
     //     };
 
     return (
-        <div className="w-full h-full relative">
+        <section className="w-full h-full relative">
             <div className="w-full aspect-10/6 relative overflow-hidden">
                 <div
                     ref={sliderRef}
@@ -75,30 +75,40 @@ const ImageSlider = ({ imageUrls }: ImageSliderProps) => {
                     }}
                     onTransitionEnd={handleTransitionEnd}
                 >
-                    {images.map((url, idx) => (
-                        <img
-                            key={idx}
-                            src={url}
-                            alt={`image slider ${idx}`}
-                            className="object-cover w-full h-full shrink-0 grow-0"
-                        />
-                    ))}
+                    {images.map((url, idx) => {
+                        const isCloned = idx === 0 || idx === images.length - 1;
+                        return (
+                            <img
+                                key={idx}
+                                src={url}
+                                alt={isCloned ? '' : `Image ${idx}`}
+                                aria-hidden={
+                                    isCloned || imageIndex !== idx
+                                        ? 'true'
+                                        : undefined
+                                }
+                                className="object-cover w-full h-full shrink-0 grow-0"
+                            />
+                        );
+                    })}
                 </div>
                 <button
                     onClick={showPrevImage}
-                    className="absolute block inset-y-0 p-4 cursor-pointer left-0 *:stroke-white *:fill-black *:size-8 hover:bg-black/20 transition duration-300 ease-in-out hover:*:animate-squish"
+                    className="absolute block inset-y-0 p-4 cursor-pointer left-0 *:stroke-white *:fill-black *:size-8 hover:bg-black/20 transition duration-300 ease-in-out hover:*:animate-squish focus-visible:*:animate-squish"
+                    aria-label="view previous image"
                 >
                     <ArrowBigLeft />
                 </button>
                 <button
                     onClick={showNextImage}
-                    className="absolute block inset-y-0 p-4 cursor-pointer right-0 *:stroke-white *:fill-black *:size-8 hover:bg-black/20 transition duration-300 ease-in-out hover:*:animate-squish"
+                    className="absolute block inset-y-0 p-4 cursor-pointer right-0 *:stroke-white *:fill-black *:size-8 hover:bg-black/20 transition duration-300 ease-in-out hover:*:animate-squish focus-visible:*:animate-squish"
+                    aria-label="View Next Image"
                 >
                     <ArrowBigRight />
                 </button>
             </div>
-            <div className="flex items-center gap-2 justify-center relative w-full">
-                <div className="absolute -top-5 sm:-top-10">
+            <div className="flex justify-center relative w-full">
+                <div className="absolute -top-5 sm:-top-10 space-x-1 ">
                     {images.map((_, index) => {
                         if (index === 0 || index === images.length - 1) {
                             return null; // Skip cloned images
@@ -106,8 +116,9 @@ const ImageSlider = ({ imageUrls }: ImageSliderProps) => {
                         return (
                             <button
                                 key={index}
-                                className={`text-black text-3xl cursor-pointer *:stroke-white *:size-5 md:*:size-auto`}
+                                className={`text-black text-3xl cursor-pointer *:stroke-white *:fill-black *:size-5 md:*:size-auto hover:*:scale-[1.2] focus-visible:*:scale-[1.2] *:transition-transform *:duration-200 *:ease-in-out`}
                                 onClick={() => goToImage(index)}
+                                aria-label={`View Image ${index}`}
                             >
                                 {index === imageIndex ? (
                                     <CircleDot />
@@ -119,7 +130,7 @@ const ImageSlider = ({ imageUrls }: ImageSliderProps) => {
                     })}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
