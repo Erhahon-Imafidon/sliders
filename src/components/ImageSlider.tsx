@@ -80,13 +80,13 @@ const ImageSlider = ({ imageUrls }: ImageSliderProps) => {
                 </div>
                 <button
                     onClick={showPrevImage}
-                    className="absolute block inset-y-0 p-4 cursor-pointer left-0 *:stroke-white *:fill-black *:size-8 hover:bg-black/20 transition duration-300 ease-in-out"
+                    className="absolute block inset-y-0 p-4 cursor-pointer left-0 *:stroke-white *:fill-black *:size-8 hover:bg-black/20 transition duration-300 ease-in-out hover:*:animate-squish"
                 >
                     <ArrowBigLeft />
                 </button>
                 <button
                     onClick={showNextImage}
-                    className="absolute block inset-y-0 p-4 cursor-pointer right-0 *:stroke-white *:fill-black *:size-8 hover:bg-black/20 transition duration-300 ease-in-out"
+                    className="absolute block inset-y-0 p-4 cursor-pointer right-0 *:stroke-white *:fill-black *:size-8 hover:bg-black/20 transition duration-300 ease-in-out hover:*:animate-squish"
                 >
                     <ArrowBigRight />
                 </button>
