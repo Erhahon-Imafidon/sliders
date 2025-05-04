@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { ArrowBigLeft, ArrowBigRight } from 'lucide-react';
+import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from 'lucide-react';
 
 type ImageSliderProps = {
     imageUrls: string[];
@@ -35,6 +35,12 @@ const ImageSlider = ({ imageUrls }: ImageSliderProps) => {
         if (isTransitioning) return;
         setIsTransitioning(true);
         setImageIndex((prev) => prev - 1);
+    };
+
+    const goToImage = (index: number) => {
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setImageIndex(index); // Adjust for cloned images
     };
 
     //   const showNextImage = () => {
@@ -90,6 +96,28 @@ const ImageSlider = ({ imageUrls }: ImageSliderProps) => {
                 >
                     <ArrowBigRight />
                 </button>
+            </div>
+            <div className="flex items-center gap-2 justify-center relative w-full">
+                <div className="absolute -top-5 sm:-top-10">
+                    {images.map((_, index) => {
+                        if (index === 0 || index === images.length - 1) {
+                            return null; // Skip cloned images
+                        }
+                        return (
+                            <button
+                                key={index}
+                                className={`text-black text-3xl cursor-pointer *:stroke-white *:size-5 md:*:size-auto`}
+                                onClick={() => goToImage(index)}
+                            >
+                                {index === imageIndex ? (
+                                    <CircleDot />
+                                ) : (
+                                    <Circle />
+                                )}
+                            </button>
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );
