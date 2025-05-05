@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
+
 @theme {
---animate-squish: squish 0.5s ease-in-out;
+    --animate-squish: squish 0.5s ease-in-out;
+    --color-carousel: #f2f2f2;
 
 
     @keyframes squish {
