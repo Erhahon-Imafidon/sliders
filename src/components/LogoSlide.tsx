@@ -21,8 +21,8 @@ const LogoSlide = () => {
         { src: Buzzfeed, alt: 'Buzzfeed' },
     ];
     return (
-        <section className="bg-white py-15 w-full overflow-hidden whitespace-nowrap">
-            <div className="flex animate-slide">
+        <section className="logos bg-white py-15 w-full overflow-hidden whitespace-nowrap cursor-pointer">
+            <div className="flex animate-slide logos-slide">
                 <div className="inline-flex gap-10 sm:gap-15 shrink-0">
                     {logos.map((logo) => (
                         <img

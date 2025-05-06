@@ -6,6 +6,9 @@
     padding-inline: 1rem;
 }
 
+.logos:hover .logos-slide {
+    animation-play-state: paused;
+}
 @theme {
     --animate-squish: squish 0.5s ease-in-out;
     --animate-slide: slide 20s infinite linear;
