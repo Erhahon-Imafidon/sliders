@@ -6,15 +6,15 @@ const IMAGES = [car1, car2, car3, car4, car5];
 
 const App = () => {
     return (
-        <>
+        <main className="min-h-screen">
             <div className="w-full max-w-7xl mx-auto h-125 mt-10">
                 <ImageSlider imageUrls={IMAGES} />
             </div>
             {/*Logo Carousel */}
-            <div className="mt-80 py-5 px-0 bg-carousel h-1/2 relative">
+            <div className="lg:mt-80 pt-20 px-0 bg-carousel h-100 relative">
                 <LogoSlide />
             </div>
-        </>
+        </main>
     );
 };
 

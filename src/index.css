@@ -1,14 +1,29 @@
 @import "tailwindcss";
 
 
+@utility container {
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
 @theme {
     --animate-squish: squish 0.5s ease-in-out;
+    --animate-slide: slide 20s infinite linear;
     --color-carousel: #f2f2f2;
 
 
     @keyframes squish {
         50% {
             scale: 1.4 0.6;
+        }
+    }
+
+    @keyframes slide {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-100%);
         }
     }
 }

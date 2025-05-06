@@ -21,13 +21,32 @@ const LogoSlide = () => {
         { src: Buzzfeed, alt: 'Buzzfeed' },
     ];
     return (
-        <div className="bg-white w-full overflow-hidden px-15">
-            <div className="whitespace-nowrap flex gap-10 shrink-0 w-full">
-                {logos.map((logo) => (
-                    <img src={logo.src} alt={logo.alt} className="h-12.5" />
-                ))}
+        <section className="bg-white py-15 w-full overflow-hidden whitespace-nowrap">
+            <div className="flex animate-slide">
+                <div className="inline-flex gap-10 sm:gap-15 shrink-0">
+                    {logos.map((logo) => (
+                        <img
+                            key={logo.alt}
+                            src={logo.src}
+                            alt={logo.alt}
+                            className="h-8 sm:h-12.5"
+                        />
+                    ))}
+                </div>
+
+                {/*duplicate */}
+                <div className="inline-flex gap-10 sm:gap-15 shrink-0">
+                    {logos.map((logo) => (
+                        <img
+                            key={logo.alt}
+                            src={logo.src}
+                            alt={logo.alt}
+                            className="h-8 sm:h-12.5"
+                        />
+                    ))}
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 export default LogoSlide;
