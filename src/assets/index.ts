@@ -3,5 +3,28 @@ import car2 from './imgs/car-2.jpg';
 import car3 from './imgs/car-3.jpg';
 import car4 from './imgs/car-4.jpg';
 import car5 from './imgs/car-5.jpg';
+// SVGS
+import Three from './svg/3m.svg';
+import BarStool from './svg/barstool-store.svg';
+import Budweiser from './svg/budweiser.svg';
+import Buzzfeed from './svg/buzzfeed.svg';
+import Forbes from './svg/forbes.svg';
+import Macys from './svg/macys.svg';
+import MensHealth from './svg/mensHealth.svg';
+import MrBeast from './svg/mrbeast.svg';
 
-export { car1, car2, car3, car4, car5 };
+export {
+    car1,
+    car2,
+    car3,
+    car4,
+    car5,
+    Macys,
+    Three,
+    MrBeast,
+    Forbes,
+    Budweiser,
+    BarStool,
+    MensHealth,
+    Buzzfeed,
+};
