@@ -9,10 +9,12 @@
 .logos:hover .logos-slide {
     animation-play-state: paused;
 }
+
 @theme {
     --animate-squish: squish 0.5s ease-in-out;
     --animate-slide: slide 20s infinite linear;
     --color-carousel: #f2f2f2;
+    --color-transy: rgba(255, 255, 255, 0);
 
 
     @keyframes squish {
