@@ -10,11 +10,14 @@ import {
     SliderWin5,
 } from '../../assets/index';
 
+// Note: By default, if you provide perPage option, Splide generates a pagination button for each page, but not for each slide. In case that you want to disable this "paging" — meaning make a carousel move one by one and display all dots — set the focus option to 0 (you don't have to set perMove in this case).
+
 const SplideCarousel = () => {
     const spliderOptions = {
-        type: 'loop',
+        type: 'slide',
         perPage: 3,
-        perMove: 1,
+        // perMove: 1,
+        focus: 0,
         gap: '1rem',
         // focus: 'center',
         // trimSpace: false,
@@ -41,7 +44,11 @@ const SplideCarousel = () => {
 
     return (
         <div className="w-full">
-            <Splide options={spliderOptions} aria-label="My Favorite Images">
+            <Splide
+                tag="section"
+                options={spliderOptions}
+                aria-label="My Favorite Images"
+            >
                 <SplideSlide>
                     <div className="flex flex-col gap-y-4">
                         <div className="h-100 overflow-hidden">
