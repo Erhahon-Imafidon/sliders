@@ -16,7 +16,7 @@ const App = () => {
                 <LogoSlide />
             </div>
 
-            <div className="md:mt-40 container">
+            <div className="md:mt-40 mb-20 container ">
                 <SplideCarousel />
             </div>
         </main>
