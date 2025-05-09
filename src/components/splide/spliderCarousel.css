@@ -1,0 +1,19 @@
+.custom-prev, .custom-next{
+    background: #F3B211;
+}
+
+.splide__pagination__page {
+    background: #F3B211 !important;
+}
+
+.splide__pagination__page .is-active {
+    background: aqua !important;
+}
+
+.splide__pagination {
+    bottom: -4rem !important;
+}
+
+.splide__pagination__page.is-active {
+    background: black !important;
+}
