@@ -2,6 +2,7 @@ import { car1, car3, car2, car4, car5 } from './assets/index';
 import ImageSlider from './components/ImageSlider.tsx';
 import LogoSlide from './components/LogoSlide.tsx';
 import SplideCarousel from './components/splide/SplideCarousel.tsx';
+import SwipeImageCarousel from './components/swippers/SwipeImageCarousel.tsx';
 
 const IMAGES = [car1, car2, car3, car4, car5];
 
@@ -18,6 +19,10 @@ const App = () => {
 
             <div className="md:mt-40 mb-20 container ">
                 <SplideCarousel />
+            </div>
+
+            <div className="mt-40 mb-20 container">
+                <SwipeImageCarousel />
             </div>
         </main>
     );

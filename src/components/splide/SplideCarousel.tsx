@@ -19,7 +19,7 @@ const SplideCarousel = () => {
         // perMove: 1,
         focus: 0,
         gap: '1rem',
-        // focus: 'center',
+        // focus: 'center', Use this if you want to center the active slide also add the trimSpace: false
         // trimSpace: false,
 
         // Responsive breakpoints
