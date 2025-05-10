@@ -19,6 +19,12 @@ import SlideWin3 from './imgs/slideWin3.jpeg';
 import SliderWin4 from './imgs/slideWin5.jpeg';
 import SliderWin5 from './imgs/slideWin7.jpeg';
 
+// Freepik
+import GamerOne from './imgs/gamer1.jpg';
+import GamerTwo from './imgs/gamer2.jpg';
+import GamerThree from './imgs/gamer3.jpg';
+import GamerFour from './imgs/gamer4.jpg';
+
 export {
     car1,
     car2,
@@ -38,4 +44,8 @@ export {
     SlideWin3,
     SliderWin4,
     SliderWin5,
+    GamerOne,
+    GamerTwo,
+    GamerThree,
+    GamerFour,
 };

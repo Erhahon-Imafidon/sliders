@@ -6,9 +6,6 @@
     background: #F3B211 !important;
 }
 
-.splide__pagination__page .is-active {
-    background: aqua !important;
-}
 
 .splide__pagination {
     bottom: -4rem !important;

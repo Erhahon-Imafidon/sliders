@@ -19,6 +19,8 @@ const App = () => {
             <div className="md:mt-40 mb-20 container ">
                 <SplideCarousel />
             </div>
+
+            <div className="mt-10 mb-20 container"></div>
         </main>
     );
 };
