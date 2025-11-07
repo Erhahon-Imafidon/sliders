@@ -1,5 +1,4 @@
-@import "tailwindcss";
-
+@import 'tailwindcss';
 
 @utility container {
     margin-inline: auto;
@@ -10,12 +9,39 @@
     animation-play-state: paused;
 }
 
+/* Blurred Image Lazy Loading Styles */
+.blurred-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.blurred-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    animation: pulse-loading 2.5s infinite;
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+.blurred-img.loaded::before {
+    /* animation: none; */
+    content: none;
+}
+
+.blurred-img img {
+    transition: opacity 300ms ease-in-out;
+    display: block;
+}
+
 @theme {
     --animate-squish: squish 0.5s ease-in-out;
     --animate-slide: slide 20s infinite linear;
     --color-carousel: #f2f2f2;
     --color-transy: rgba(255, 255, 255, 0);
-
 
     @keyframes squish {
         50% {
@@ -29,6 +55,18 @@
         }
         to {
             transform: translateX(-100%);
+        }
+    }
+
+    @keyframes pulse-loading {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 0.1;
+        }
+        100% {
+            opacity: 0;
         }
     }
 }

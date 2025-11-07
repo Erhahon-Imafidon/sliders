@@ -10,10 +10,10 @@ const IMAGES = [car1, car2, car3, car4, car5];
 const App = () => {
     return (
         <main className="min-h-screen">
-            <div className="w-full max-w-7xl mx-auto h-125 mt-10">
+            {/* <div className="w-full max-w-7xl mx-auto h-125 mt-10">
                 <ImageSlider imageUrls={IMAGES} />
             </div>
-            {/*Logo Carousel */}
+           
             <div className="lg:mt-80 pt-20 px-0 bg-carousel h-80 relative">
                 <LogoSlide />
             </div>
@@ -24,7 +24,7 @@ const App = () => {
 
             <div className="mt-40 mb-20 container">
                 <SwipeImageCarousel />
-            </div>
+            </div> */}
             <div className="mt-40 mb-20 container">
                 <OptimizeImgContainer />
             </div>
