@@ -1,8 +1,20 @@
 #!/bin/bash
 
 # Script to generate 20px wide versions of all images
-# Navigate to the imgs directory
-cd "src/assets/imgs"
+# Get the directory where the script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Default to src/assets/imgs, but allow override via command line argument
+IMGS_DIR="${1:-src/assets/imgs}"
+
+# Navigate to the imgs directory (relative to script location)
+cd "$SCRIPT_DIR/$IMGS_DIR" || {
+    echo "❌ Error: Cannot find directory '$IMGS_DIR'"
+    echo "💡 Usage: $0 [images-directory]"
+    echo "💡 Example: $0 src/assets/imgs"
+    echo "💡 Example: $0 public/images"
+    exit 1
+}
 
 echo "🖼️  Generating small versions of images..."
 echo "📂 Working in: $(pwd)"
