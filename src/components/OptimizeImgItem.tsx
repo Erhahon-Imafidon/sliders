@@ -39,7 +39,7 @@ const OptimizeImgItem = ({
 
     return (
         <div
-            className={`blurred-img relative w-full bg-cover bg-center bg-no-repeat ${
+            className={`blurred-img relative w-full overflow-hidden bg-cover bg-center bg-no-repeat ${
                 isLoaded ? 'loaded' : ''
             } ${className}`}
             style={{ backgroundImage: `url(${blurredSrc})` }}
@@ -53,9 +53,6 @@ const OptimizeImgItem = ({
                     isLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
             />
-            {!isLoaded && (
-                <div className="absolute inset-0 animate-pulse bg-gray-200 opacity-20"></div>
-            )}
         </div>
     );
 };

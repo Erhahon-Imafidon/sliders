@@ -9,14 +9,7 @@
     animation-play-state: paused;
 }
 
-/* Blurred Image Lazy Loading Styles */
-.blurred-img {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-}
-
+/* Blurred Image Lazy Loading Styles - Only custom styles that can't be done with Tailwind */
 .blurred-img::before {
     content: '';
     position: absolute;
@@ -28,13 +21,7 @@
 }
 
 .blurred-img.loaded::before {
-    /* animation: none; */
     content: none;
-}
-
-.blurred-img img {
-    transition: opacity 300ms ease-in-out;
-    display: block;
 }
 
 @theme {
