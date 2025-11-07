@@ -22,6 +22,7 @@
 
 .blurred-img.loaded::before {
     content: none;
+    animation: none;
 }
 
 @theme {
