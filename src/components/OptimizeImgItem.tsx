@@ -49,7 +49,7 @@ const OptimizeImgItem = ({
                 src={src}
                 alt={alt}
                 loading="lazy"
-                className={`block aspect-auto w-full object-cover object-center transition-opacity duration-300 ease-in-out ${
+                className={`block aspect-auto w-full object-cover object-center transition-opacity duration-300 ease-in ${
                     isLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
             />
